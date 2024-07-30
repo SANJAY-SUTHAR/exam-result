@@ -17,11 +17,12 @@
             font-family: Arial, sans-serif;
         }
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: white;
         }
         .container h1 {
             margin-bottom: 20px;
@@ -30,6 +31,8 @@
             padding: 10px;
             width: calc(100% - 22px);
             margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
         }
         .container input[type="button"] {
             padding: 10px 20px;
@@ -38,9 +41,17 @@
             color: white;
             cursor: pointer;
             font-size: 16px;
+            border-radius: 4px;
         }
         .container input[type="button"]:hover {
             background: #ff3300;
+        }
+        .container input[type="button"].reset {
+            background: #ccc;
+            color: black;
+        }
+        .container input[type="button"].reset:hover {
+            background: #aaa;
         }
     </style>
 </head>
@@ -50,16 +61,21 @@
         <input type="text" id="rollNumber" placeholder="Roll Number">
         <br>
         <input type="button" value="Get Result" onclick="downloadResult()">
+        <input type="button" value="Reset" class="reset" onclick="resetField()">
     </div>
 
     <script>
         function downloadResult() {
             const rollNumber = document.getElementById('rollNumber').value;
             if(rollNumber) {
-                window.location.href = 'result.pdf'; // Replace with the path to your file
+                window.location.href = 'result.pdf'; // Make sure this is the correct file path
             } else {
                 alert('Please enter your roll number');
             }
+        }
+        
+        function resetField() {
+            document.getElementById('rollNumber').value = '';
         }
     </script>
 </body>
