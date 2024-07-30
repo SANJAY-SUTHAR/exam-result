@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBM University - Exam Results</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('background.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+        .container input[type="button"] {
+            padding: 10px 20px;
+            background: #ff6600;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .container input[type="button"]:hover {
+            background: #ff3300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>B.E.(CBCS) ENGINEERING 1st SEM Examination Result 2023 - 2024</h1>
+        <input type="text" id="rollNumber" placeholder="Roll Number">
+        <br>
+        <input type="button" value="Get Result" onclick="downloadResult()">
+    </div>
+
+    <script>
+        function downloadResult() {
+            const rollNumber = document.getElementById('rollNumber').value;
+            if(rollNumber) {
+                window.location.href = 'result.pdf'; // Replace with the path to your file
+            } else {
+                alert('Please enter your roll number');
+            }
+        }
+    </script>
+</body>
+</html>
